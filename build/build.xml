@@ -1,0 +1,58 @@
+<project default="build" basedir=".">
+
+	<xmlproperty file="build.env.xml" keeproot="false" semanticAttributes="true" includeSemanticAttribute="true"/>
+	
+	<target name="createDir">
+		<mkdir dir="${ACDP_CW_DIR}"/>
+		<mkdir dir="${ACDP_CW_DIR}/bin"/>
+		<mkdir dir="${ACDP_CW_DIR}/pages"/>
+		<mkdir dir="${ACDP_CW_DIR}/logs"/>			
+	</target>
+	
+	<target name="copy">
+		
+		<copy todir="${ACDP_CW_DIR}/pages">
+			<fileset dir="${HOME_DIR}/pages">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${ACDP_CW_DIR}/bin">
+	    		<fileset dir="${HOME_DIR}/bin">
+		 	<include name="*.*"/>
+	   		</fileset>
+		</copy>
+		
+		<fixcrlf srcdir="${ACDP_CW_DIR}/bin" eol="unix" includes="*.*" />
+		
+	</target>
+	
+
+		
+	<target name="createTar">
+		
+		<tstamp>
+		  <format property="TODAY_IN"  pattern="ddMMyyyy"/>
+		</tstamp>
+		
+		<tar tarfile="${ACDP_CW_DIR}.${TODAY_IN}.tar">
+			<tarfileset dir="${ACDP_CW_DIR}" mode="755" prefix="${ACDP_CW_DIR}">
+			</tarfileset>
+        	</tar>
+			
+	</target>
+	
+	<target name="clean">
+		<delete dir="${ACDP_CW_DIR}" failonerror="false"/>
+		
+		<delete>
+		    <fileset dir="." includes="*.tar"/>
+		</delete>		
+
+	</target>
+		
+	<target name="build" depends="clean,createDir,copy,createTar">
+	</target>
+	
+	
+</project>

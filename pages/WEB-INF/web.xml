@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        id="WebApp_ID" version="2.5">
+
+        <welcome-file-list>
+                <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+        <error-page>
+                <error-code>404</error-code>
+                <location>/404.jsp</location>
+        </error-page>
+        <context-param>
+                <param-name>termsOfUseURL</param-name>
+                <param-value>http://www.cw.com/footer/legal/</param-value>
+        </context-param>
+        <context-param>
+                <param-name>privacyPolicyURL</param-name>
+                <param-value>http://www.cw.com/footer/privacy/</param-value>
+        </context-param>
+        <context-param>
+                <param-name>copyrightText</param-name>
+                <param-value>Copyright &amp;copy; 2012 Cable&amp;Wireless U.K. All rights reserved. Registered in England and Wales. Company Number 01541957 Registered office:
+Waterside House, Longshot Lane, Bracknell, Berkshire, RG12 1XL, United Kingdom</param-value>
+        </context-param>
+        <context-param>
+                <param-name>solutionsURL</param-name>
+                <param-value>https://developer-content.emc.com/downloads/atmos_geodrive/download.htm</param-value>
+        </context-param>
+        <context-param>
+                <param-name>developersURL</param-name>
+                <param-value>https://community.emc.com/docs/DOC-10404</param-value>
+        </context-param>
+        <context-param>
+                <param-name>cdpTitle</param-name>
+                <param-value>Cloud Storage</param-value>
+        </context-param>
+        <context-param>
+                <param-name>cdpLogoURL</param-name>
+                <param-value>http://www.cw.com</param-value>
+        </context-param>
+        <context-param>
+                <param-name>regGateServices</param-name>
+                <param-value>storageservice</param-value>
+        </context-param>
+        <context-param>
+                <param-name>accesspoint</param-name>
+                <param-value>https://cloudstorage.cw.net</param-value>
+        </context-param>
+        <context-param>
+                <param-name>usermgmtContextPath</param-name>
+                <param-value>/cdp-rest</param-value>
+        </context-param>
+
+</web-app>
